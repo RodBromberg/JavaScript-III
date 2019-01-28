@@ -23,7 +23,7 @@ function GameObject(attributes) {
 }
 
 GameObject.prototype.destroy = function() {
-        return 'Object was removed from the game'
+        return `${this.name} was removed from the game`
     }
     /*
       === CharacterStats ===
@@ -37,6 +37,9 @@ function CharacterStats(attributes) {
     GameObject.call(this, attributes)
     this.healthPoints = attributes.healthPoints
     this.name = attributes.name;
+    // this.destroy = () => {
+    //     return GameObject.prototype.destroy.call(this)
+    // }
 }
 
 
@@ -45,39 +48,37 @@ CharacterStats.prototype = Object.create(GameObject.prototype)
 
 
 CharacterStats.prototype.takeDamage = function() {
-    return `{this.name} took damage`
+    return `${this.name} took damage`
 }
 
 
 
 /*
-  === Humanoid (Having an appearance or character resembling that of a human.) ===
-  * team
-  * weapons
-  * language
-  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-  * should inherit destroy() from GameObject through CharacterStats
-  * should inherit takeDamage() from CharacterStats
+=== Humanoid (Having an appearance or character resembling that of a human.) ===
+* team
+* weapons
+* language
+* greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+* should inherit destroy() from GameObject through CharacterStats
+* should inherit takeDamage() from CharacterStats
 */
 
 
 
 function Humanoid(attributes) {
-    CharacterStats.call(this, object)
+    CharacterStats.call(this, attributes)
     this.team = attributes.team;
     this.weapons = attributes.weapons;
-    this.language = language;
+    this.language = attributes.language;
 
-}
-
-Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`
 }
 
 Humanoid.prototype = Object.create(CharacterStats.prototype)
 
 
-
+Humanoid.prototype.greet = function() {
+    return `${this.name} offers a greeting in ${this.language}`
+}
 
 
 /*
@@ -138,6 +139,10 @@ const archer = new Humanoid({
     ],
     language: 'Elvish',
 });
+
+
+
+//Sorry had noticed those errors and thought I had already repushed
 
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
