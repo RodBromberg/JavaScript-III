@@ -54,13 +54,13 @@ CharacterStats.prototype.takeDamage = function() {
 
 
 /*
-=== Humanoid (Having an appearance or character resembling that of a human.) ===
-* team
-* weapons
-* language
-* greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-* should inherit destroy() from GameObject through CharacterStats
-* should inherit takeDamage() from CharacterStats
+  === Humanoid (Having an appearance or character resembling that of a human.) ===
+  * team
+  * weapons
+  * language
+  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  * should inherit destroy() from GameObject through CharacterStats
+  * should inherit takeDamage() from CharacterStats
 */
 
 
@@ -139,10 +139,6 @@ const archer = new Humanoid({
     ],
     language: 'Elvish',
 });
-
-
-
-//Sorry had noticed those errors and thought I had already repushed
 
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
